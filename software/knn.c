@@ -86,7 +86,15 @@ int main() {
 
   //generate random seed 
   random_init(S);
+  //generate the 100 numbers with filter
 
+  short y=0, y_prev=0;
+  
+  for(int i=0; i<100; i++){
+    y= (short)cmwc_rand() +2*y_prev;
+    y_prev=y;
+    uart_printf("%d\n",y);
+  }
   //init dataset
   for (int i=0; i<N; i++) {
 
